@@ -1,0 +1,5 @@
+static/sounds/headshot.wav filter=lfs diff=lfs merge=lfs -text
+static/sounds/monster-kill.wav filter=lfs diff=lfs merge=lfs -text
+static/sounds/fatality.wav filter=lfs diff=lfs merge=lfs -text
+static/sounds/fire-in-the-hole.wav filter=lfs diff=lfs merge=lfs -text
+static/sounds/flashbang.wav filter=lfs diff=lfs merge=lfs -text
