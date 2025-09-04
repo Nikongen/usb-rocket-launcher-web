@@ -1,2 +1,5 @@
+pyusb
+pynput
+python3_xlib
 flask
-git+https://github.com/pwicks86/usb_missile_control
+gunicorn

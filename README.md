@@ -37,3 +37,38 @@ sudo systemctl enable ustreamer
 sudo systemctl start ustreamer
 sudo systemctl status ustreamer
 ```
+## Access rights
+create a user rocket with access to specific devices
+
+```bash
+# Create group and add user
+sudo addgroup rocket
+sudo usermod -aG rocket nikolas
+
+# Allow access to device for this group
+sudo nano /etc/udev/rules.d/rocket
+## add line
+https://github.com/pyusb/pyusb/blob/master/docs/faq.rst#how-to-practically-deal-with-permission-issues-on-linux
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0x2123", ATTRS{idProduct}=="0x2123", GROUP="rocket", MODE="0660"
+
+# Reload rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+```
+
+## Packages
+
+```bash
+sudo apt install python3-usb python3-pyaudi python3-flask python3-gunicorn pipx
+
+```
+
+## Python & flask
+
+```bash
+sudo apt install python3-virtualenv
+python3 -m virtualenv .venv
+source .venv/bin/activate
+pip install -r req.txt
+```

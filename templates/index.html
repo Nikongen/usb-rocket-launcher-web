@@ -30,6 +30,14 @@
     <button onclick="move('down')">↓ Down</button><br/>
     <button onclick="fire()">🚀 Fire</button>
   </div>
+  <div class="sounds">
+    <button onclick="sound('fatality')">Fatality (t)</button><br/>
+    <button onclick="sound('fire-in-the-hole')">Fire in the hole! (f)</button><br/>
+    <button onclick="sound('flashbang')">Flashbang (b)</button></br>
+    <button onclick="sound('headshot')">Headshot (h)</button></br>
+    <button onclick="sound('monster-kill')">Monster kill (m)</button>
+  </div>
+
 
 <script>
 async function post(path, body={}) {
@@ -38,14 +46,20 @@ async function post(path, body={}) {
 function move(dir){ post("/api/move",{dir}); }
 function stop(){ post("/api/stop"); }
 function fire(){ post("/api/fire"); }
+function sound(name) { post("/api/sound", {name}); }  
 
 document.addEventListener("keydown", e => {
   if (e.key==="ArrowUp") move("up");
   if (e.key==="ArrowDown") move("down");
   if (e.key==="ArrowLeft") move("left");
   if (e.key==="ArrowRight") move("right");
-  if (e.key===" ") fire();
-  if (e.key==="Escape") stop();
+  if (e.key==="Enter") fire();
+  if (e.key===" ") stop();
+  if (e.key==="t") sound("fatality");
+  if (e.key==="f") sound("fire-in-the-hole");
+  if (e.key==="b") sound("flashbang");
+  if (e.key==="h") sound("headshot");
+  if (e.key==="m") sound("monster-kill");
 });
 </script>
 </body>
