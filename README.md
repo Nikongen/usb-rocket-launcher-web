@@ -72,3 +72,10 @@ python3 -m virtualenv .venv
 source .venv/bin/activate
 pip install -r req.txt
 ```
+
+
+## Sounds
+
+
+- https://raspberrypi.stackexchange.com/questions/95193/setting-up-config-for-alsa-at-etc-asound-conf
+- https://www.datamate.org/aktivierung-der-soundausgabe-unter-ubuntu-server/

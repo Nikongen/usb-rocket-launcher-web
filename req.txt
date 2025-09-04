@@ -3,3 +3,4 @@ pynput
 python3_xlib
 flask
 gunicorn
+pyaudio

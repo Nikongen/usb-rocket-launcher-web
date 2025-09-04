@@ -1,9 +1,8 @@
 import os
+import subprocess
 import usb.core 
 import logging
 from flask import Flask, render_template, request, jsonify
-
-from playsound import play_wav
 
 # Inspired by:
 # https://github.com/pwicks86/usb_missile_control/blob/master/usb_missile_control/missile_control.py
@@ -66,15 +65,15 @@ def sound():
         log.info(name)
         match name:
             case "fatality":
-                play_wav("static/sounds/fatality.wav")
+                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/fatality.wav"])
             case "fire-in-the-hole":
-                play_wav("static/sounds/fire-in-the-hole.wav")
+                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/fire-in-the-hole.wav"])
             case "flashbang":
-                play_wav("ststic/sounds/flashbang.wav")
+                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/flashbang.wav"])
             case "headshot":
-                play_wav("static/sounds/headshot.wav")
+                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/headshot.wav"])
             case "monster-kill":
-                play_wav("static/sounds/monster-kill.wav")
+                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/monster-kill.wav"])
             case _:
                 log.error("Can not parse sound name")
         return jsonify(ok=True)
