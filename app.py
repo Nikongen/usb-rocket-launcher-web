@@ -65,15 +65,15 @@ def sound():
         log.info(name)
         match name:
             case "fatality":
-                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/fatality.wav"])
+                subprocess.Popen(["aplay", "-D", "hw:2,0", f"static/sounds/fatality.wav"])
             case "fire-in-the-hole":
-                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/fire-in-the-hole.wav"])
+                subprocess.Popen(["aplay", "-D", "hw:2,0", f"static/sounds/fire-in-the-hole.wav"])
             case "flashbang":
-                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/flashbang.wav"])
+                subprocess.Popen(["aplay", "-D", "hw:2,0", f"static/sounds/flashbang.wav"])
             case "headshot":
-                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/headshot.wav"])
+                subprocess.Popen(["aplay", "-D", "hw:2,0", f"static/sounds/headshot.wav"])
             case "monster-kill":
-                subprocess.run(["aplay", "-D", "hw:2,0", f"static/sounds/monster-kill.wav"])
+                subprocess.Popen(["aplay", "-D", "hw:2,0", f"static/sounds/monster-kill.wav"])
             case _:
                 log.error("Can not parse sound name")
         return jsonify(ok=True)
